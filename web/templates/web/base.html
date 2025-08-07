@@ -1,4 +1,5 @@
-{% load static %}
+    {% load static %}
+    {% load django_browser_reload %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,6 +32,9 @@
     <!-- CSS específico por página -->
     {% block extra_css %}{% endblock %}
 </head>
+
+
+
 <body>
     <!-- Loader -->
     <div class="css-loader">
@@ -91,5 +95,9 @@
 
     <script src="{% static 'web/js/offcanvas.js' %}"></script>
 
+
+
+
 </body>
+  
 </html>

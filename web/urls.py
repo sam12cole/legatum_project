@@ -1,6 +1,6 @@
 from django.contrib import admin
-from django.urls import path
 from web import views
+from django.urls import path, include
 
 urlpatterns = [
     path('', views.home_view, name='index'),  # Página de inicio con nombre 'index'
