@@ -1,0 +1,124 @@
+ 
+ {% load static %}
+ <footer class="site-footer" style="background-color: #17182c; color: #fff; font-family: 'Segoe UI', sans-serif;">
+    <div class="social-newsletter-area">
+        <div class="container">
+            <div class="row">
+                <div class="col col-xs-12">
+                    <div class="social-newsletter-content clearfix" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+                        <div class="social-area">
+                            <ul class="clearfix" style="display: flex; gap: 15px; list-style: none; padding: 0;">
+                                <li><a href="#"><i class="ti-facebook" style="color: white;"></i></a></li>
+                                <li><a href="#"><i class="ti-twitter-alt" style="color: white;"></i></a></li>
+                                <li><a href="#"><i class="ti-linkedin" style="color: white;"></i></a></li>
+                                <li><a href="#"><i class="ti-pinterest" style="color: white;"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-area">
+                            
+                            <img src="{% static 'web/imagenes/logocompleto_1w.png' %}" alt="Logo Legatum" style="max-height: 60px;">
+                        </div>
+                        <div class="newsletter-area">
+                            <div class="inner">
+                                <h3 style="color: white;">Suscríbete a nuestro boletín</h3>
+                                
+                                <form>
+                                    <div class="formulario-correo">
+                                         <button type="submit" style="background-color: rgba(255, 255, 255, 0); color: #ffffff; padding: 10px 15px; border: none; border-radius: 5px;">
+                                       <i class="material-icons">send</i>
+
+                                         </button>
+
+                                        <input type="email" class="form-control" placeholder="Correo electrónico *" required>
+                                    </div>
+                                </form> 
+
+                                <div class="redes-sociales">
+                                    <a href="https://facebook.com/tuusuario" target="_blank" aria-label="Facebook" class="icono-red">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://instagram.com/tuusuario" target="_blank" aria-label="Instagram" class="icono-red">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="https://tiktok.com/@tuusuario" target="_blank" aria-label="TikTok" class="icono-red">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="upper-footer" style="padding: 40px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget about-widget">
+                        <div class="widget-title">
+                            <h3>Sobre Nosotros</h3>
+                        </div>
+                        <p>Somos un estudio jurídico comprometido con la excelencia, la ética y la defensa de tus derechos.</p>
+                    </div>
+                </div>
+                <div class="col col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget contact-widget">
+                        <div class="widget-title">
+                            <h3>Contáctanos</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li><strong>Dirección:</strong> Calle Legal 123, Quito, Ecuador</li>
+                            <li><strong>Teléfono:</strong> +593 99 999 9999</li>
+                            <li><strong>Email:</strong> contacto@legatum.ec</li>
+                            <li><strong>Horario:</strong> Lunes a Viernes, 08:30 - 17:30</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget link-widget">
+                        <div class="widget-title">
+                            <h3>Enlaces Útiles</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li><a href="{% url 'index' %}">Inicio</a></li>
+                            <li><a href="{% url 'servicios' %}">Servicios</a></li>
+                            <li><a href="{% url 'nosotros' %}">Equipo</a></li>
+                            <li><a href="{% url 'contacto' %}">Contáctanos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col col-lg-3 col-md-6 col-sm-12">
+                    <div class="widget link-widget">
+                        <div class="widget-title">
+                            <h3>Áreas de Práctica</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li><a href="{% url 'servicios' %}">Derecho Civil</a></li>
+                            <li><a href="{% url 'servicios' %}">Derecho Laboral</a></li>
+                            <li><a href="{% url 'servicios' %}">Derecho Penal</a></li>
+                            <li><a href="{% url 'servicios' %}">Derecho Familiar</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lower-footer" style="border-top: 1px solid #ffffff22; padding: 20px 0; text-align: center;">
+        <div class="container">
+            <p style="margin: 0;">&copy; 2025 Legatum. Todos los derechos reservados.</p>
+            <div class="extra-link" style="margin-top: 10px;">
+                <ul style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 15px;">
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

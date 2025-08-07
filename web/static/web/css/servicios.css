@@ -1,0 +1,718 @@
+/* Portada Servicios */
+.portada-servicios {
+  background-color: #f8f9fb;
+  padding: 80px 20px 0px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contenedor-servicios {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.bloque-izquierdo {
+  flex: 1 1 200px;
+  color: #1a1a1a;
+}
+
+.bloque-izquierdo h1 {
+  font-size: 3rem;
+  color: #2a2dcb;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.bloque-izquierdo p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.bloque-derecho {
+  flex: 1 1 280px;
+  text-align: center;
+}
+
+.bloque-derecho img {
+  max-width: 100%;
+  height: auto;
+
+  transition: transform 0.3s ease;
+}
+
+.bloque-derecho img:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor-servicios {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bloque-izquierdo h1 {
+    font-size: 2.2rem;
+  }
+
+  .bloque-izquierdo p {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* Introducción de Servicios */
+.introduccion-servicios {
+  background-color: #f8f9fb;
+  padding: 60px 20px 30px 20px;
+  text-align: center;
+}
+
+.contenido-intro {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contenido-intro h2 {
+  font-size: 2.5rem;
+  color: #2a2dcb;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.contenido-intro p {
+  font-size: 1.15rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenido-intro h2 {
+    font-size: 2rem;
+  }
+
+  .contenido-intro p {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+/* Tarjeta Base */
+.tarjeta-servicio {
+  position: relative;
+  background-color: #cadcf077;
+  padding: 30px 20px 40px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  max-width: 350px;
+  margin: auto;
+  text-align: left;
+}
+
+/* Ícono SVG */
+.icono-servicio {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #2a2dcb;
+  transition: color 0.4s ease;
+}
+
+
+.icono-servicio-1 {
+   
+    top: 20px;
+    left: 20px;
+    color: #2a2dcb;
+    transition: color 0.4s ease;
+    margin: 10px 20px 30px 60px ;
+
+        
+}
+
+
+
+/* Título */
+.titulo-servicio {
+  margin-left: 60px;
+  font-size: 1.5rem;
+  color: #2a2dcb;
+  font-weight: 700;
+  margin-top: 0;
+  transition: color 0.4s ease;
+  text-align: left; 
+
+}
+
+/* Línea debajo del título */
+.linea-servicio {
+  width: 50px;
+  height: 3px;
+  background-color: #2a2dcb;
+  margin: 10px 0 20px 60px;
+  transition: background-color 0.4s ease;
+}
+
+/* Descripción */
+.descripcion-servicio {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-left: 60px;
+  transition: color 0.4s ease;
+}
+
+/* Botón o enlace */
+.link-servicio {
+  display: inline-block;
+  margin-left: 60px;
+  margin-top: 20px;
+  color: #2a2dcb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+/* Hover completo */
+.tarjeta-servicio:hover {
+  background-color: #949df583;
+}
+
+.tarjeta-servicio:hover .icono-servicio-1,
+.tarjeta-servicio:hover .titulo-servicio,
+.tarjeta-servicio:hover .descripcion-servicio,
+.tarjeta-servicio:hover .link-servicio {
+  color: #ffffff;
+}
+
+.tarjeta-servicio:hover .linea-servicio {
+  background-color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .tarjeta-servicio {
+    max-width: 90%;
+    padding: 25px 15px;
+  }
+
+  .titulo-servicio, .descripcion-servicio, .link-servicio {
+    margin-left: 50px;
+  }
+
+  .icono-servicio svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+
+/* Contenedor del botón */
+.boton-contenedor-1 {
+  margin-top: 8px;
+  text-align: right;
+  padding-left: 60px;
+
+}
+
+
+/* Botón estilo pill */
+.link-servicio {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 50px;
+  background-color: #2a2dcb;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border: none;
+  text-align: left;
+
+}
+
+/* Al hacer hover sobre la tarjeta, cambia color del botón */
+.tarjeta-servicio:hover .link-servicio {
+  background-color: #ffffff;
+  color: #152083da;
+  text-decoration: none;
+}
+
+
+/* Estilos del Off-Canvas */
+
+.off-canvas {
+  position: fixed;
+  top: 0;
+  right: -80vw;           
+  width: 80vw;            
+  max-width: 500px;       
+  height: 100%;
+
+  /* Fondo con imagen y degradado */
+  background-image: linear-gradient(
+       #315bd7e8,
+      #a4b4e4b9
+      
+    ),
+    url('imagenes/fondo_2w.jpg'); /* Cambia esto con la ruta real */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transition: right 0.4s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* Mostrar el panel */
+.off-canvas.show {
+  right: 0;
+}
+
+
+
+
+@media (max-width: 600px) {
+  .off-canvas {
+    width: 100vw;
+    right: -100vw;
+    border-radius: 0; /* Quita esquinas para móviles si prefieres */
+  }
+
+  .off-canvas.show {
+    right: 0;
+  }
+}
+
+
+/* Cabecera del panel */
+.off-canvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Título */
+.off-canvas-header .titulo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Botón de cerrar */
+.cerrar-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Cuerpo del panel */
+.off-canvas-body {
+  padding: 1rem;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+
+/* primer off canva*/
+
+.titulo-servicio_1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.descripcion-principal {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #e0e0ff;
+  text-align: center;
+}
+
+.lista-servicio {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.lista-servicio li {
+  margin-bottom: 0.7rem;
+  padding: 0.4rem 0.8rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #ffffff;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #f0f0ff;
+  display: flex;
+  align-items: center;
+}
+
+.lista-servicio .icono {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  color: #00ffcc;
+}
+
+.frase-impacto {
+  margin-top: 1.5rem;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.8rem 1rem;
+  border-radius: 15px;
+}
+
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+  display: none;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.btn-cerrar {
+  display: none;
+}
+
+
+
+/* ficha */
+
+.mini-ficha,
+.mini-ficha_3,
+.mini-ficha_4,
+.mini-ficha_2 {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.705);
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),      /* sombra inferior suave */
+    0 1px 3px rgba(0, 0, 0, 0.08);     /* contorno sutil */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 10px;
+}
+
+
+.mini-ficha:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 15px rgba(0, 0, 0, 0.15),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f2e8a3 ;
+}
+
+.mini-ficha_2:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 15px rgba(0, 0, 0, 0.15),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #cee073c5	 ;
+}
+
+.mini-ficha_3:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 15px rgba(0, 0, 0, 0.15),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #dd7d7bbd	 ;
+}
+
+.mini-ficha_4:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 15px rgba(0, 0, 0, 0.15),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #6cc4cc	 ;
+}
+
+
+.ficha-letra  {
+  font-weight: bold;
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  padding: 0px 10px ;
+  color: #f2e8a3;
+}
+
+.ficha-letra_2 {
+  font-weight: bold;
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  padding: 0px 10px ;
+  color: #cee073c5;
+}
+
+.ficha-letra_3  {
+  font-weight: bold;
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  padding: 0px 10px ;
+  color: #dd7d7bbd;
+}
+.ficha-letra_4  {
+  font-weight: bold;
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  padding: 0px 10px ;
+  color: #6cc4cc;
+}
+
+.mini-ficha:hover .ficha-letra, 
+.mini-ficha_3:hover .ficha-letra_3, 
+.mini-ficha_4:hover .ficha-letra_4, 
+.mini-ficha_2:hover .ficha-letra_2 {
+  color: #ffffff; /* al pasar el mouse */
+}
+
+
+.ficha-linea {
+  width: 2px;
+  height: 40px;
+  background-color: #ccc;
+}
+
+.ficha-icono {
+  font-size: 24px;
+  color: #f2e8a3;
+  transition: color 0.3s ease;
+  padding: 0px 5px ;
+
+}
+
+.ficha-icono_2 {
+  font-size: 24px;
+  color: #cee073c5;
+  transition: color 0.3s ease;
+  padding: 0px 5px ;
+
+}
+.ficha-icono_3 {
+  font-size: 24px;
+  color: #dd7d7bbd;
+  transition: color 0.3s ease;
+  padding: 0px 5px ;
+}
+
+.ficha-icono_4 {
+  font-size: 24px;
+  color: #6cc4cc;
+  transition: color 0.3s ease;
+  padding: 0px 5px ;
+}
+
+.mini-ficha:hover .ficha-icono, 
+.mini-ficha_2:hover .ficha-icono_2, 
+.mini-ficha_3:hover .ficha-icono_3, 
+.mini-ficha_4:hover .ficha-icono_4 {
+  color: #ffffff; /* al pasar el mouse */
+}
+
+
+
+
+.ficha-texto {
+  flex-grow: 1;
+  padding: 0 12px;
+}
+
+.ficha-texto .titulo {
+  margin: 0;
+  font-size: 13px;
+  color: #222;
+}
+
+.mini-ficha:hover .ficha-texto .titulo, 
+.mini-ficha_2:hover .ficha-texto .titulo, 
+.mini-ficha_3:hover .ficha-texto .titulo, 
+.mini-ficha_4:hover .ficha-texto .titulo {
+  color: #ffffff; /* al pasar el mouse */
+}
+
+
+.ficha-texto .descripcion {
+  margin: 0;
+  font-size: 11px;
+  color: #555;
+}
+
+.ficha-franja {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background-color: #f2e8a3;
+  border-radius: 0 12px 12px 0;
+  transition: background-color 0.3s ease;
+}
+
+
+.ficha-franja_3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background-color: #dd7d7bbd;
+  border-radius: 0 12px 12px 0;
+  transition: background-color 0.3s ease;
+}
+
+.mini-ficha:hover .ficha-franja {
+  background-color: #fcfcddaf;
+}
+
+.mini-ficha_3:hover .ficha-franja_3 {
+  background-color: #fcdfdff5;
+}
+
+/* ficha 2 reversa  */
+
+.mini-ficha.reversa {
+  flex-direction: row-reverse;
+  text-align: right;
+  position: relative;
+}
+
+.mini-ficha_2.reversa .ficha-franja_2 {
+  position: absolute;
+  left: 0; /* ¡Aquí la hacemos aparecer a la izquierda! */
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background-color: #cee073c5;
+  border-radius: 5px 0 0 5px;
+}
+
+.mini-ficha_2:hover .ficha-franja_2 {
+  background-color: #e8f0c3ab; /* verde o el color que quieras */
+}
+
+.mini-ficha_4.reversa .ficha-franja_4 {
+  position: absolute;
+  left: 0; /* ¡Aquí la hacemos aparecer a la izquierda! */
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background-color: #6cc4cc;
+  border-radius: 5px 0 0 5px;
+}
+
+.mini-ficha_4:hover .ficha-franja_4 {
+  background-color: #c3f4f8; /* verde o el color que quieras */
+}
+
+
+
+/* liena de tiempo */
+
+
+.bloque-contacto-equipo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+/* Botón estilo actual (si ya tienes .link-servicio estilizado, esto lo puedes ajustar) */
+.link-servicio {
+  background-color: #2429a2d5;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.bloque-contacto-equipo:hover .link-servicio {
+  background-color: #15175a6d;
+  color: white;
+  text-decoration: none;
+
+}
+
+
+
+/* Avatares */
+.avatares {
+  display: flex;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #fffafac1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.bloque-contacto-equipo:hover .avatar {
+  border: 2px solid #15175a6d
+  ;
+  
+}
+
+
+.contenedor_fichas {
+  display: flex;
+  flex-wrap: wrap;       /* Permite que los ítems bajen si no caben */
+  justify-content: center;
+  align-items: flex-start;
+           /* Espacio entre fichas */
+  width: 100%;
+    /* Opcional: limita el ancho máximo */
+  margin: 0 auto;         /* Centrado horizontal */
+  padding:  0rem 1.5rem 0rem 1.5rem;
+  box-sizing: border-box;
+  background-color: transparent;  /* No apariencia física */
+}

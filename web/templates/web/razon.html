@@ -1,0 +1,195 @@
+
+{% extends 'web/base.html' %}
+
+{% load static %}
+
+
+{% block title %}Inicio{% endblock %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static  'web/css/razon.css' %}">
+<link rel="stylesheet" href="{% static 'web/css/servicios.css' %}">
+<link rel="stylesheet" href="{% static  'web/css/circulo.css' %}">
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    
+<section class="fondo-compartido"> 
+            <section class="razon-container">
+            <div class="razon-texto scroll-izq-der">
+                <h2 class="titulo">Nuestra Razón de Ser</h2>
+                <h3 class="subtitulo">LEGATUM SIMBAÑA & ASOCS.</h3>
+                <p class="descripcion">
+                Firma ecuatoriana consolidada con el objetivo de brindar servicios técnicos, legales y administrativos de alta calidad. Nos especializamos en contratos públicos, mantenimiento industrial, asesoría legal y cumplimiento normativo para instituciones públicas y privadas a nivel nacional. Nuestro accionar se fundamenta en la excelencia, la responsabilidad institucional y el compromiso con cada cliente.
+                </p>
+            </div>
+            <div class="razon-imagen scroll-der-izq">
+                <img src="{% static 'web/imagenes/imagen_razon.png' %}" alt="Logo LEGATUM SIMBAÑA & ASOCS.">
+            </div>
+            </section>
+
+
+                <section class="valores-container scroll-zoom">
+                        <div class="card-superpuesta" >
+                                <div class="contenido-visible ">
+                                    <h3>Objetivo</h3>
+                                </div>
+                                <div class="contenido-hover">
+                                    <p>Ofrecer soluciones legales y técnicas de calidad para asegurar la confianza y el éxito de nuestros clientes en sus decisiones.
+
+                                    </p>
+                                </div>
+                        </div>
+
+                        <div class="card-superpuesta ">
+                                <div class="contenido-visible">
+                                    <h3>Visión</h3>
+                                </div>
+                                <div class="contenido-hover">
+                                    <p>Brindar asesoría legal y servicios técnicos con compromiso y excelencia, fortaleciendo relaciones duraderas y contribuyendo al desarrollo del país.</p>
+                                </div>
+                        </div>
+                             <div class="card-superpuesta ">
+                                <div class="contenido-visible">
+                                    <h3>Misión</h3>
+                                </div>
+                                <div class="contenido-hover">
+                                    <p>Ser una firma líder en servicios legales y técnicos, reconocida por su innovación y dedicación, impactando positivamente a personas e instituciones.</p>
+                                </div>
+                        </div>
+                </section>
+
+
+
+    <section class="valores-section">
+        <div class="diagrama scroll-izq-der">
+            <div class="container">
+            <ul class="info-wrapper">
+                <li class="infobox-1">
+                <a class="row" href="#1">
+                    <span class="icon"> <i class="fas fa-balance-scale"></i></span>
+                    <span class="info-text">
+                    
+                    <span class="btn btn-primary">Integridad</span>
+                    </span>
+                </a>
+                </li>
+                <li class="infobox-2">
+                <a class="row" href="#2">
+                    <span class="icon"><i class="fas fa-award"></i></span>
+                    <span class="info-text">
+                    
+                    <span class="btn btn-primary">Excelencia <br> Profesional</span>
+                    </span>
+                </a>
+                </li>
+                <li class="infobox-3">
+                <a class="row" href="#3">
+                    <span class="icon"><i class="fas fa-handshake"></i>   </span>
+                    <span class="info-text">
+                    
+                    <span class="btn btn-primary">Compromiso <br> con el Cliente</span>
+                    </span>
+                </a>
+                </li>
+                <li class="infobox-4">
+                <a class="row" href="#4">
+                    <span class="icon"><i class="fas fa-lightbulb"></i> </i></span>
+                    <span class="info-text">
+                    
+                    <span class="btn btn-primary">Innovación <br> Jurídica</span>
+                    </span>
+                </a>
+                </li>
+                <li class="infobox-5">
+                <a class="row" href="#5">
+                    <span class="icon"><i class="fas fa-scale-unbalanced-flip"></i> </span>
+                    <span class="info-text">
+                    
+                    <span class="btn btn-primary">Justicia Social</span>
+                    </span>
+                </a>
+                </li>
+            </ul>
+            </div>
+        </div>
+
+        <div class="contenido-texto scroll-der-izq">
+            <h2>Valores Corporativos</h2>
+            <p>
+            Nuestra empresa se rige por principios sólidos que garantizan la calidad y transparencia en todos nuestros procesos y servicios.
+            </p>
+        </div>
+    </section>
+
+
+
+
+    <div class="legal-contact-container">
+        <div class="legal-info scroll-izq-der">
+            <h2>Información legal y contacto institucional</h2><br>
+            <p class="description">En <strong>LEGATUM SIMBAÑA & ASOCS</strong>. ofrecemos asesoría legal integral respaldada por experiencia, ética y compromiso. Este espacio conecta a nuestros usuarios con información clave sobre nuestros servicios, políticas institucionales y canales de atención directa. Nuestro objetivo es brindar claridad jurídica, protección legal y acompañamiento confiable en cada paso.</p>
+            
+                    <div class="button-row">
+                        <button class="rounded-button">
+                            <span class="icon-text">
+                            <i class="fas fa-balance-scale"></i>
+                            Ir al SRI
+                            </span>
+                        </button>
+
+                        <button class="rounded-button">
+                            <span class="icon-text">
+                        <i class="fas fa-phone-alt"></i>
+                            Llamar
+                            </span>
+                        </button>
+                    </div>
+
+
+                    <div class="button-row">
+                        <button class="rounded-button">
+                            <span class="icon-text">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Ubicación
+                            </span>
+                        </button>
+
+                        <button class="rounded-button">
+                            <span class="icon-text">
+                        <i class="fas fa-info-circle"></i> 
+                        Ver más detalles
+                            </span>
+                        </button>
+                    </div>
+        </div>
+  
+        <div class="legal-image scroll-der-izq">
+            <img src="{% static 'web/imagenes/fondo_5.jpg' %}" alt="Imagen Institucional">
+        </div>
+    </div>
+
+ 
+
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+
+
+
+{% endblock %}
+ 
+
+
+
+
