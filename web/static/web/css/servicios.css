@@ -109,7 +109,7 @@
 /* Tarjeta Base */
 .tarjeta-servicio {
   position: relative;
-  background-color: #cadcf077;
+  background-color: #edf5ffe8;
   padding: 30px 20px 40px 20px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -185,7 +185,8 @@
 
 /* Hover completo */
 .tarjeta-servicio:hover {
-  background-color: #949df583;
+  background: linear-gradient(to bottom, #2a2dcb, #9ca6f3);
+
 }
 
 .tarjeta-servicio:hover .icono-servicio-1,

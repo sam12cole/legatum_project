@@ -1,0 +1,289 @@
+:root{
+  --primary: #2a2dcb;
+  --primary-dark: #1e1f8a;
+  --muted: #6b7280;
+  --card-radius: 14px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Fondo general (la imagen la pasamos inline en el HTML con {% static %}) */
+.page-bg{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Overlay sutil para mejorar contraste entre fondo y tarjeta */
+.page-bg::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(42,45,203,0.18), rgba(30,31,138,0.18));
+  z-index: 0;
+}
+
+/* Wrapper de la tarjeta (trae la tarjeta por encima del overlay) */
+.auth-wrapper{
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+/* Tarjeta centrada */
+.auth-card{
+  width: min(1000px, 95%);
+  background: rgba(255,255,255,0.98);
+  border-radius: var(--card-radius);
+  box-shadow: 0 12px 30px rgba(10,20,40,0.18);
+  overflow: hidden;
+  display: flex;
+  min-height: 460px;
+   margin-left: auto;
+  margin-right: auto;
+   flex-direction: row;
+   
+}
+
+
+
+
+/* Lado izquierdo: 60% */
+.auth-left {
+  flex: 0 0 60%;
+  padding: 36px 30px 36px 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Degradado de izquierda a derecha */
+  background: 
+    linear-gradient(to right, rgba(21, 24, 209, 0.945), rgba(158, 159, 237, 0.55)),
+    url('/static/agenda/imagenes/fondo_w.jpg') no-repeat center center;
+  background-size: cover;
+   overflow-wrap: break-word;  /* fuerza que las palabras largas se rompan */
+  word-wrap: break-word;
+  overflow: hidden;  /* previene desbordes horizontales */
+}
+
+
+/* Lado derecho: 40% */
+.auth-right{
+  flex: 0 0 40%;
+  padding: 36px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbfdff;
+  flex-direction: column;
+
+}
+.auth-left, .auth-right {
+  min-width: 0;    /* evita que flex items se expandan demasiado */
+  box-sizing: border-box;
+}
+.auth-left {
+  flex-shrink: 1;   /* permite que se reduzca si es necesario */
+  flex-grow: 0;
+}
+
+
+/* Logo posicionado en esquina superior izquierda dentro del panel izquierdo */
+.auth-logo{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 84px;
+  height: auto;
+}
+
+/* Contenido textual del lado izquierdo */
+.auth-left-content{
+  max-width: 520px;
+}
+
+.auth-left h1{
+  margin: 0 0 6px;
+  font-size: 30px;
+  color: var(--primary);
+  font-weight: 700;
+  color: white;
+  padding-top: 50px;
+}
+
+.auth-left .welcome{
+  font-size: 18px;
+  color: #27323f;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.auth-left .description{
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 6px;
+  font-size: 15px;
+  color: white;
+}
+
+/* Formulario (lado derecho) */
+/* Título del formulario */
+.login-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 24px;
+  text-align: center;
+  user-select: none;
+}
+
+/* Formulario */
+.auth-form {
+  display: flex;
+  gap: 16px;
+  max-width: 320px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.auth-form p {
+  margin: 0; /* quitar márgenes si los tiene el as_p */
+}
+
+.auth-btn {
+  margin-top: 10px;
+  /* resto de estilos como antes */
+}
+
+/* Párrafos que contienen inputs y labels */
+.auth-form p {
+  margin-bottom: 18px;
+}
+
+/* Etiquetas */
+.auth-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #334155;
+  user-select: none;
+}
+
+/* Inputs de texto y contraseña */
+.auth-form input[type="text"],
+.auth-form input[type="password"],
+.auth-form input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid #d1d5db;
+  font-size: 16px;
+  color: #111827;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Efecto hover y focus para inputs */
+.auth-form input[type="text"]:hover,
+.auth-form input[type="password"]:hover,
+.auth-form input[type="email"]:hover,
+.auth-form input[type="text"]:focus,
+.auth-form input[type="password"]:focus,
+.auth-form input[type="email"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 8px rgba(42, 45, 203, 0.4);
+  outline: none;
+}
+
+/* Botón */
+.auth-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 14px 18px;
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 8px 18px rgba(42,45,203,0.18);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+.auth-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+}
+
+.auth-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Evitar mostrar texto en campo contraseña */
+.auth-form input[type="password"] {
+  font-family: 'text-security-disc', 'Arial', sans-serif;
+  -webkit-text-security: disc;
+}
+
+/* Opcional: para Firefox usa esto */
+@supports (-moz-appearance:none) {
+  .auth-form input[type="password"] {
+    font-family: 'password', 'Arial', sans-serif;
+  }
+}
+
+/* -----------------------
+   Responsive: apilar en pantallas pequeñas
+   ----------------------- */
+@media (max-width: 900px){
+  .auth-card {
+    flex-direction: column !important;
+   
+    width: 100%;
+    min-height: auto;
+  }
+
+  .auth-left,
+  .auth-right {
+    flex: none;
+    width: 100%;
+    padding: 24px;
+  }
+
+  .auth-logo {
+    position: static;
+    width: 72px;
+    margin-bottom: 14px;
+  }
+
+  .auth-left h1 { font-size: 24px; }
+  .auth-left .welcome { font-size: 16px; }
+  .auth-left .description { font-size: 14px; max-width: 100%; }
+}
+
+@media (max-width: 480px){
+  .auth-card {
+    border-radius: 10px;
+    min-height: 420px;
+    flex-direction: column !important;
+  }
+
+  .auth-left h1 { font-size: 20px; }
+  .auth-form { max-width: 100%; }
+}
+
+

@@ -1,0 +1,47 @@
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f9f9f9;
+    margin: 20px;
+}
+
+.calendario-container {
+    display: flex;
+    gap: 20px;
+}
+
+.calendario-lateral {
+    width: 250px;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.calendario-principal {
+    flex: 1;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#titulo-fecha {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2a2dcb;
+    margin-bottom: 15px;
+}
+
+.fc-event {
+    background-color: #2a2dcb !important;
+    border: none !important;
+    color: white !important;
+    font-weight: bold;
+    padding: 3px;
+    border-radius: 6px !important;
+}
+
+.fc-toolbar-title {
+    color: #2a2dcb !important;
+    font-weight: bold;
+}

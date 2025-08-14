@@ -715,10 +715,10 @@ form button.btn-primary:hover {
 ------------------------------------*/
 .testimonial-and-clients {
   position: relative;
-  background: url(imagenescss/fondo_2w.jpg) center center/cover no-repeat;
-  background-color: #21154aa4;
+  
+  background-color: #ffffff00;
   background-blend-mode: overlay;
-  color: white;
+  color: black;
   z-index: 0;
 }
 
@@ -726,14 +726,13 @@ form button.btn-primary:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(21, 16, 42, 0.594); /* azul semitransparente */
+  background-color: rgba(21, 16, 42, 0); /* azul semitransparente */
   z-index: -1;
 }
 
 .testimonials {
   padding: 50px 0 50px;
-  color: #fff;
-  border-bottom: 1px solid #26264b;
+  color: rgb(85, 85, 85);
 }
 
 .testimonials .test-img {
@@ -752,12 +751,12 @@ form button.btn-primary:hover {
 }
 
 .testimonials h5 {
-  color: #26264b;
+  color: #2023a3;
   margin-top: 15px;
 }
 
 .testimonials span {
-  color: #c4c4c4;
+  color: black;
   display: inline-block;
   margin: 0 0 17px;
 }
@@ -770,6 +769,7 @@ form button.btn-primary:hover {
 .test-pagination {
   text-align: center;
   margin-top: 8px;
+  color: #2023a3;
 }
 
 .test-pagination span {
@@ -1412,7 +1412,7 @@ span {
   background-size: cover;        /* Asegura que la imagen cubra todo */
   background-position: center;   /* Centra la imagen */
   background-repeat: no-repeat;  /* Evita que se repita */
-  padding: 60px 20px;
+  padding: 0px 20px 60px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff; /* Cambia a blanco si el fondo es oscuro */
 }
@@ -1624,6 +1624,11 @@ span {
 }
 
 
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+}
 
 .redes-sociales {
   display: flex;

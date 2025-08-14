@@ -117,14 +117,15 @@
 }
 
 .contenido-visible {
-  background-color: rgba(108, 165, 235, 0.536);
+  background-color: #edf5ffe8;
   color: #2a2dcb;
   font-size: 3.8rem;
   z-index: 1;
 }
 
 .contenido-hover {
-  background-color: #2a2dcb;
+  background: linear-gradient(to bottom, #2a2dcb, #9ca6f3);
+  
   color: white;
   opacity: 0;
   z-index: 2;

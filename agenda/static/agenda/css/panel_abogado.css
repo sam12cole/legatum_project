@@ -1,0 +1,355 @@
+/* Estilos base (desktop) */
+body {
+  margin: -17px 0px 0px 0px;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 60px;
+  background: linear-gradient(to right, rgba(21, 24, 209, 0.945), rgba(101, 104, 255, 0.96));
+  overflow-x: hidden;
+  transition: width 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1000;
+  padding-left: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar:hover {
+  width: 250px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar-link i {
+  margin-right: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.sidebar-link:hover {
+  background-color: #1f22b0;
+  transform: scale(1.05);
+}
+
+.sidebar-link span {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sidebar:hover .sidebar-link span {
+  opacity: 1;
+}
+
+.sidebar-logout {
+  margin-top: auto;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.main {
+  margin-left: 60px;
+  padding: 0 0px 0 20px;
+  transition: margin-left 0.3s;
+}
+
+.sidebar:hover ~ .main {
+  margin-left: 250px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.logo-icon {
+  font-size: 24px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.logo-text {
+  margin-left: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  font-weight: bold;
+  color: white;
+}
+
+.sidebar:hover .logo-text {
+  opacity: 1;
+}
+
+.sidebar-section {
+  width: 100%;
+}
+
+.sidebar-section h4 {
+  color: #060730c0;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+.sidebar:hover .sidebar-section h4 {
+  opacity: 1;
+}
+
+
+/* -------------------
+   📱 Responsive
+------------------- */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+  }
+
+  .sidebar.open {
+    width: 200px;
+  }
+
+  .main {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+  }
+
+  .sidebar.open ~ .main {
+    margin-left: 200px;
+  }
+
+  /* Botón hamburguesa */
+  .toggle-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #1518d1;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1100;
+  }
+
+  /* Overlay oculto por defecto */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  z-index: 1050;
+}
+
+/* Mostrar overlay cuando sidebar está abierto */
+.sidebar.open ~ #overlay {
+  display: block;
+}
+
+.sidebar:open ~ #sidebar-link span {
+  opacity: 1;
+} 
+/* Botón hamburguesa */
+.toggle-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #0e11bfa8;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 40px;
+  z-index: 1100;
+  display: none;
+}
+
+/* Ocultar botón cuando sidebar está abierto */
+.sidebar.open ~ .toggle-btn {
+  display: none;
+  opacity: 0;
+}
+
+}
+
+.sidebar.collapsed {
+  width: 2px;
+}
+
+/* mini seccion de nombre */
+:root {
+  --primary-color: #2a2dcb;
+  --secondary-color: #1f22b0;
+  --text-color: white;
+  --card-color: #1518d1;
+}
+
+
+
+/* Barra de encabezado */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  
+
+  align-items: center;
+  color: var(--text-color);
+  padding: 15px 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Izquierda */
+.header-left h3 { margin: 0; font-size: 1.2rem; color: #1518d1; }
+.header-left h4 { margin: 0; font-size: 2rem; font-weight: normal; color: #1e1d1de7;}
+.header-left p { margin: 5px 0 0 0; font-size: 0.85rem; color: #696970; }
+
+/* Derecha */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Círculo de notificación */
+.notification {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0d50a3a9;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: 0.5px solid #1518d1 ;
+}
+
+/* Mini tarjeta */
+
+
+.mini-card h5 { margin: 0; font-size: 0.9rem; }
+.mini-card p { margin: 0; font-size: 0.75rem; color: #00000b; }
+
+/* ---------------- Media queries ---------------- */
+
+/* Pantallas medianas */
+@media (max-width: 1024px) {
+  .header-left h3 { font-size: 1rem; }
+  .header-left h4 { font-size: 0.9rem; }
+  .header-left p { font-size: 0.75rem; }
+
+  .mini-card { min-width: 120px; padding: 8px 10px; }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 768px) {
+  .header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 17px;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mini-card { min-width: 100px; padding: 6px 8px; }
+  .notification { width: 35px; height: 35px; font-size: 1rem; }
+}
+
+.mini-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    max-width: 300px;
+    flex-direction: row;
+    border: 0.5px solid #1518d1;
+}
+
+.mini-card-img img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #2a2dcb;
+}
+
+.mini-card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mini-card-text strong {
+    font-size: 1rem;
+    color: #333;
+}
+
+.mini-card-text span {
+    font-size: 0.85rem;
+    color: gray;
+}
+
+/* Hover */
+.mini-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* calendario */
+
+.calendario-container {
+    display: flex;
+    gap: 20px;
+}
+
+.calendario-lateral {
+    width: 250px;
+}
+
+.calendario-principal {
+    flex: 1;
+}
+
+#titulo-fecha {
+    font-size: 1.5rem;
+    color: #2a2dcb;
+    margin-bottom: 10px;
+}
