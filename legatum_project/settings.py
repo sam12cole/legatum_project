@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'web',
     'django_browser_reload',
     'agenda', 
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +131,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'frontend/dist/assets'),
 ]
 
 # Default primary key field type
@@ -141,3 +143,15 @@ LOGIN_URL = '/agenda/login/'
 LOGIN_REDIRECT_URL = '/agenda/panel/'
 
 LOGOUT_REDIRECT_URL = '/agenda/login/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+    
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}

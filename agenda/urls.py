@@ -7,5 +7,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('panel/', views.panel_abogado, name='panel_abogado'),
     path('api/citas/', views.citas_api, name='citas_api'),
-
+    path('calendario-test/', views.calendario_test, name='calendario_test'),
+    path('api/citas/', views.listar_citas),
+    path('api/publicaciones/', views.listar_publicaciones),
 ]

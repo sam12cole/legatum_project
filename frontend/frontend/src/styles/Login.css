@@ -1,0 +1,228 @@
+.fondo {
+  background-image: url('../assets/fondo_contac.jpg'); 
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;       /* centra vertical */
+  justify-content: center;   /* centra horizontal */
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(69, 66, 66, 0.216); /* negro semi-transparente */
+}
+
+.login-container {
+  display: flex;
+  width: 65%; /* ancho total del recuadro */
+  height: 58%; /* puedes ajustar */
+  background-color: rgba(255,255,255,0.9); /* semitransparente */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+   position: relative;
+}
+
+.left-side {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start; /* Cambiado de center a flex-start */
+  
+  background-image: 
+    linear-gradient(to right, rgba(21, 24, 209, 0.945), rgba(158, 159, 237, 0.55)),
+    url('../assets/fondo_w.jpg');
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Contención del contenido */
+  overflow: auto; /* Permite scroll si es necesario */
+  padding: 2rem;
+}
+
+.logo-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.logo-wrapper img {
+  max-width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.right-side {
+  width: 40%;
+  background-color: #ffffff; /* color solo de prueba */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.welcome-content {
+  padding-top: 20px;
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.welcome-title {
+  font-size: 1.8rem; /* Tamaño moderado */
+  font-weight: 600; /* Semi-negrita */
+  color: #ffffff; /* Azul oscuro elegante */
+  margin: 0 !important;
+  line-height: 1.3;
+}
+
+.welcome-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500; /* Medio negrita */
+  color: #151516; /* Gris azulado */
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.welcome-description {
+  font-size: 0.95rem;
+  color: #ffffff; /* Gris suave */
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* Estilos para el formulario */
+.auth-right {
+  width: 100%;
+  max-width: 400px;
+  padding: 3.5rem;
+  background: rgb(255, 255, 255);
+}
+
+.login-title {
+  text-align: center;
+  color: rgba(21, 24, 209, 0.945);
+  margin-bottom: 2rem;
+  font-size: 1.7rem;
+  font-weight: ;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Estilos para InputField */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 20px;
+  
+}
+
+.input-label {
+  font-weight: 500;
+  color: rgba(21, 24, 209, 0.945);
+  font-size: 0.9rem;
+}
+
+.input-field {
+  padding: 12px 16px;
+  border: 2px solid rgba(21, 24, 209, 0.945);
+  background-color:rgba(21, 24, 209, 0.945);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+
+}
+
+.input-field:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(3, 48, 229, 0.846);
+  border: 0.5px solid blue;
+}
+
+.input-field:hover {
+  border-color: #251ea5;
+  background-color: rgba(23, 26, 182, 0.819);
+   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(53, 56, 238, 0.89);
+}
+
+/* Estilos para Button */
+.auth-btn {
+  padding: 20px 20px;
+  background: linear-gradient(135deg, #dfe7ed, #dee9f1);
+  color: rgb(29, 28, 28);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: -20px;
+
+}
+
+.auth-btn:hover {
+  background: linear-gradient(135deg, #fbfbfb, hsla(0, 0%, 100%, 0.986));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 47, 163, 0.374);
+  border: 0.1px solid rgba(21, 24, 209, 0.945);
+
+}
+
+.auth-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0 0 3px rgba(21, 49, 165, 0.612);
+  border: 0.5px solid blue;
+  border-color: #251ea5;
+
+
+}
+.auth-btn:focus {
+  transform: translateY(0);
+  border: 0.5px solid blue !important;
+  border-color: #251ea5;
+
+
+}
+.login-btn {
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-right {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .input-field {
+    padding: 10px 14px;
+  }
+  
+  .auth-btn {
+    padding: 12px 18px;
+  }
+}
+
+.titulo-input {
+  color: #151516;
+}

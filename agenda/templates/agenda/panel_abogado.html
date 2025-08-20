@@ -2,8 +2,9 @@
 {% load static %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'agenda/css/panel_abogado.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+
+<!-- Versión más reciente (v6 en adelante) desde cdnjs -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <link rel="stylesheet" href="{% static 'agenda/css/calendar.css' %}">
 
@@ -279,7 +280,7 @@
         <div class="header-bar">
     <div class="header-left">
         <h3>Bienvenido</h3>
-        <h4>Dr. Francisco Simbaña</h4>
+        <h4>Dr. {{ request.user.last_name }} </h4>
         <p>Aquí puedes agendar citas, ver horarios y hacer publicaciones.</p>
     </div>
 
@@ -290,12 +291,18 @@
 
         <div class="mini-card">
             <div class="mini-card-img">
-                <img src="https://via.placeholder.com/60" alt="Foto">
+                {% if foto %}
+                    <img src="{{ foto }}" alt="Foto del abogado" width="120">
+                {% else %}
+                    <p>Sin foto</p>
+                {% endif %}
             </div>
+
             <div class="mini-card-text">
-                <strong>Francisco Simbaña</strong>
-                <span>@francisco</span>
+                <strong> {{ request.user.first_name }} {{ request.user.last_name }} </strong>
+                <span>  {{ username }} </span>
             </div>
+            
         </div>
 
         </div>
@@ -304,29 +311,7 @@
     </header>
     
 
-        <h2 id="titulo-fecha"></h2>
-
-        <div style="display: flex;">
-            <!-- Mini-calendario mensual -->
-            <div id="mini-calendario" style="width: 25%; margin-right: 10px;"></div>
-
-            <!-- Calendario semanal -->
-            <div id="calendario-semanal" style="width: 75%;"></div>
-        </div>
-
-    <div class="calendario-container">
-        <!-- Lado izquierdo: mini calendario -->
-        <div class="calendario-lateral">
-            <div id="mini-calendario"></div>
-        </div>
-
-        <!-- Lado derecho: semanal -->
-        <div class="calendario-principal">
-            <h2 id="titulo-fecha"></h2>
-            <div id="calendario-semanal"></div>
-        </div>
-    </div>
-
+   {% include 'agenda/calendario.html' %}
 
 
 
@@ -357,10 +342,8 @@
 
 {% block extra_js %}
 
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
-<script src="{% static 'agenda/js/sidebar.js' %}"></script>
-<script src="{% static 'agenda/js/calendar.js' %}"></script>
 
+<script src="{% static 'agenda/js/sidebar.js' %}"></script>
 
 
 

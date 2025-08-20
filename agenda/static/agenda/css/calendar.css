@@ -1,8 +1,4 @@
-body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background-color: #f9f9f9;
-    margin: 20px;
-}
+
 
 .calendario-container {
     display: flex;
@@ -32,16 +28,214 @@ body {
     margin-bottom: 15px;
 }
 
-.fc-event {
-    background-color: #2a2dcb !important;
-    border: none !important;
-    color: white !important;
-    font-weight: bold;
-    padding: 3px;
-    border-radius: 6px !important;
-}
+
 
 .fc-toolbar-title {
     color: #2a2dcb !important;
     font-weight: bold;
+}
+
+.fc-today-button {
+    display: none !important;
+}
+
+
+
+/* Encabezado de días: primera letra mayúscula, resto minúscula */
+.fc-col-header-cell-cushion {
+    text-transform: lowercase;       /* Todo en minúscula */
+}
+
+.fc-col-header-cell-cushion::first-letter {
+    text-transform: uppercase;       /* Solo primera letra en mayúscula */
+}
+
+/* Botón de mes anterior */
+.fc-prev-button {
+    background-color: #474ae28d !important;  /* Fondo azul LEGATUM */
+    color: white !important;                /* Icono en blanco */
+    border-radius: 50% !important;          /* Hacerlo completamente redondo */
+    width: 30px;                            /* Ajustar ancho */
+    height: 30px;                           /* Ajustar alto */
+    padding: 0 !important;                  /* Quitar padding interno */
+    font-size: 14px;                        /* Tamaño del icono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra opcional */
+    transition: background 0.2s ease-in-out;
+     border: none !important; 
+}
+
+/* Hover */
+.fc-prev-button:hover {
+    background-color: #2a2dcb !important; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Botón Next month */
+.fc-next-button {
+    background-color: #474ae28d !important;  /* Fondo azul LEGATUM */
+    color: white !important;                /* Icono en blanco */
+    border-radius: 50% !important;          /* Botón redondo */
+    width: 30px;                             /* Ajusta el tamaño */
+    height: 30px;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* Sombra opcional */
+    transition: background 0.2s ease-in-out;
+     border: none !important; 
+}
+
+/* Hover */
+.fc-next-button:hover {
+    background-color: #2a2dcb !important;   /* Azul más oscuro al pasar el mouse */
+}
+
+/* Icono interno */
+.fc-next-button .fc-icon {
+    font-size: 14px;   /* Tamaño del icono */
+    color: white;      /* Asegura que el icono sea blanco */
+}
+
+.fc-button-group {
+    display: flex;       /* Asegura que sea flex */
+    gap: 8px;            /* Espacio entre los botones, ajusta a tu gusto */
+}
+
+
+/* Contenedor principal del mes: eliminar doble borde, redondear y poner fondo */
+.fc-dayGridMonth-view {
+    border: 1px solid #ccc;     /* Solo un borde */
+    border-radius: 15px;        /* Redondeo del contenedor */
+    overflow: hidden;           /* Para que el borde redondeado funcione */
+    background-color: #f5f5f507;  /* Fondo del calendario completo */
+}
+
+/* Primera fila de encabezados (dom, lun, mar...) */
+.fc-scrollgrid-section-header {
+    background-color: #aaabfb6c;
+      /* Fondo LEGATUM o el color que quieras */
+    color: rgb(50, 94, 226);               /* Texto en blanco */
+    font-weight: bold;           /* Opcional: negrita */
+    text-transform: capitalize; /* Primera letra mayúscula */
+}
+
+/* Opcional: si quieres eliminar borde de cada celda de encabezado */
+.fc-col-header-cell {
+    border: none;
+}
+
+.fc .fc-scrollgrid-section-sticky > * {
+    background-color: #aaabfb6c;
+    position: sticky;
+    z-index: 3;
+}
+
+
+/* Contenedor principal del calendario */
+.fc-view-harness {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Cabecera del calendario */
+.fc-col-header {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Celdas de los días */
+.fc-day {
+    border-radius: 6px;
+}
+
+/* Eventos del calendario */
+.fc-event {
+    border-radius: 4px !important;
+}
+
+/* Celda del día actual */
+.fc-day-today {
+    border-radius: 6px;
+}
+
+/* Cabeceras de columnas (días) */
+.fc-col-header-cell {
+    border-radius: 6px 6px 0 0;
+}
+
+/* Contenedor de la vista semanal */
+.fc-timeGridWeek-view {
+    border-radius: 12px;
+}
+
+/* Ajustes para las celdas de hora */
+.fc-timegrid-slot-label {
+    border-radius: 4px;
+}
+
+/* Eventos en la vista de tiempo */
+.fc-timegrid-event {
+    border-radius: 4px !important;
+}
+
+/* Efecto hover para días */
+.fc-day:hover {
+    border-radius: 6px;
+}
+
+
+/* Altura de cada celda de día en la vista de mes */
+.fc-daygrid-day-frame {
+    max-height: 50px; /* Ajusta la altura según necesites */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Si quieres que el número del día quede centrado verticalmente */
+.fc-daygrid-day-top {
+    flex: 0 0 auto; /* Mantiene tamaño del número */
+    text-align: center;
+    margin-bottom: 5px; /* Espacio con eventos */
+}
+
+/* Área de eventos ocupa el resto de la celda */
+.fc-daygrid-day-events {
+    flex: 1 1 auto;
+}
+
+/* Cambiar el fondo del día actual */
+.fc-day-today {
+    background-color: #a4a5f02a !important; /* Azul LEGATUM */
+    color: white; /* Opcional: cambiar color del texto */
+}
+
+.fc-event {
+    color: white;
+    font-weight: bold;
+    padding: 3px;
+    border-radius: 6px;
+    border: none;
+}
+
+#calendario-semanal .fc-scroller::-webkit-scrollbar {
+    width: 6px; /* grosor de la barra */
+}
+
+#calendario-semanal .fc-scroller::-webkit-scrollbar-thumb {
+    background-color: rgba(42, 45, 203, 0.5); /* color semitransparente */
+    border-radius: 10px; /* bordes redondeados */
+}
+
+#calendario-semanal .fc-scroller::-webkit-scrollbar-track {
+    background: transparent; /* fondo de la barra */
+}
+#fc-dom-1 {
+    display: none !important;
+}
+
+#fc-dom-2 {
+    display: none !important;
 }
