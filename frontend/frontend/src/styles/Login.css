@@ -1,3 +1,13 @@
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: sans-serif;
+
+  /* Layout general */
+  display: block; /* ya no centramos todo */
+}
+
 .fondo {
   background-image: url('../assets/fondo_contac.jpg'); 
   background-size: cover;
@@ -129,36 +139,38 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 20px;
+  margin-top: -23px;
   
 }
 
 .input-label {
   font-weight: 500;
-  color: rgba(21, 24, 209, 0.945);
+  color: rgba(165, 166, 255, 0.449);
   font-size: 0.9rem;
 }
 
 .input-field {
   padding: 12px 16px;
-  border: 2px solid rgba(21, 24, 209, 0.945);
-  background-color:rgba(21, 24, 209, 0.945);
+  border: 2px solid rgba(171, 172, 237, 0.474);
+  background-color:rgba(200, 201, 246, 0.587);
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
   outline: none;
+  color: #151516;
+
 
 }
 
 .input-field:focus {
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(3, 48, 229, 0.846);
+  
+  box-shadow: 0 0 0 3px rgba(182, 194, 242, 0.242);
   border: 0.5px solid blue;
 }
 
 .input-field:hover {
   border-color: #251ea5;
-  background-color: rgba(23, 26, 182, 0.819);
+  background-color: rgba(221, 222, 247, 0.533);
    transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(53, 56, 238, 0.89);
 }
@@ -166,8 +178,8 @@
 /* Estilos para Button */
 .auth-btn {
   padding: 20px 20px;
-  background: linear-gradient(135deg, #dfe7ed, #dee9f1);
-  color: rgb(29, 28, 28);
+  background: linear-gradient(135deg, #203be8, #a4d3f4);
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 8px;
   font-size: 1rem;
@@ -181,10 +193,11 @@
 }
 
 .auth-btn:hover {
-  background: linear-gradient(135deg, #fbfbfb, hsla(0, 0%, 100%, 0.986));
+  background: linear-gradient(135deg, #c3ccef, hsla(231, 90%, 92%, 0.986));
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(45, 47, 163, 0.374);
   border: 0.1px solid rgba(21, 24, 209, 0.945);
+  color: #251ea5;
 
 }
 
@@ -198,8 +211,6 @@
 }
 .auth-btn:focus {
   transform: translateY(0);
-  border: 0.5px solid blue !important;
-  border-color: #251ea5;
 
 
 }

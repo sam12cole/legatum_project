@@ -1,0 +1,134 @@
+/* Barra de encabezado */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color, #333);
+  padding: 15px 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  border-radius: 0 0 20px 20px;
+  background-color: #ffffff00;
+
+  width: 100%;      /* Ocupa todo el ancho */
+  margin: 0;  
+  top: 0;
+  left: 0;
+  z-index: 999;  
+  position: sticky;
+}
+
+
+/* Izquierda */
+.header-left h3 { 
+  margin: 0; 
+  font-size: 1.2rem; 
+  color: #1518d1; 
+}
+.header-left h4 { 
+  margin: 0; 
+  font-size: 1.8rem; 
+  font-weight: normal; 
+  color: #1e1d1de7;
+}
+.header-left p { 
+  margin: 5px 0 0 0; 
+  font-size: 0.85rem; 
+  color: #696970; 
+}
+
+/* Derecha */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Círculo de notificación */
+.notification {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0d50a3a9;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: 0.5px solid #1518d1 ;
+  background-color: white;
+  transition: transform 0.2s ease;
+}
+.notification:hover {
+  transform: scale(1.1);
+}
+
+/* Mini tarjeta */
+.mini-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    max-width: 300px;
+    flex-direction: row;
+    border: 0.5px solid #1518d1;
+}
+.mini-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.mini-card-img img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #2a2dcb;
+}
+
+.mini-card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.mini-card-text strong {
+    font-size: 1rem;
+    color: #333;
+}
+.mini-card-text span {
+    font-size: 0.85rem;
+    color: gray;
+}
+
+/* ---------------- Media queries ---------------- */
+
+/* Pantallas medianas */
+@media (max-width: 1024px) {
+  .header-left h3 { font-size: 1rem; }
+  .header-left h4 { font-size: 1.2rem; }
+  .header-left p { font-size: 0.75rem; }
+
+  .mini-card { min-width: 120px; padding: 8px 10px; }
+  .notification { width: 40px; height: 40px; font-size: 1rem; }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 768px) {
+  .header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .mini-card { min-width: 100px; padding: 6px 8px; }
+  .notification { width: 35px; height: 35px; font-size: 0.9rem; }
+}

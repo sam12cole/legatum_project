@@ -1,0 +1,105 @@
+/* components/Sidebar.css */
+.sidebar {
+  width: 80px;
+ background: linear-gradient(to right, rgba(21, 24, 209, 0.945), rgba(101, 104, 255, 0.96));
+  color: white;
+  transition: width 0.3s;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.sidebar.expanded {
+  width: 250px;
+}
+
+
+.sidebar-section {
+  margin-bottom: 1rem;
+  align-items: center;
+  
+}
+
+.sidebar-title {
+  margin: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #9e9ee5;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  color: white;
+  text-decoration: none;
+  transition: background 0.2s;
+ 
+}
+
+.sidebar-link i {
+  font-size: 18px;
+  width: 25px;
+  text-align: center;
+  color: white;
+}
+
+
+
+.sidebar-link:hover {
+  background: #eaecf999;
+  color: #2a2dcb;
+  border-radius: 2rem;
+}
+
+.text-section {
+  margin-left: 10px;
+}
+
+.sidebar-logout {
+  margin-top: auto;
+  margin-top: 80px;
+
+}
+
+
+.logo-wrapper_1 {
+  display: flex;
+  align-items: center;      /* Alinea verticalmente */
+  justify-content: flex-start; /* Siempre pegados a la izquierda */
+  transition: all 0.3s ease;
+}
+
+.main-logo1 {
+  margin-left: -18px;
+  margin-right: -26px;
+
+}
+.main-logo1,
+.main-logo2 {
+  height: 40px;   /* Mantienen el mismo tamaño */
+  flex-shrink: 0; /* Evita que se encojan */
+}
+
+/* Quitar separación extra */
+.main-logo2 {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 250px;          /* ancho total al expandir */
+    left: -220px;          /* solo se asoma 30px */
+    transition: left 0.3s ease;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 999;
+  }
+
+  .sidebar.expanded {
+    left: 0;               /* expandido totalmente */
+  }
+}

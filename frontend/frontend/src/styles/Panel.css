@@ -1,0 +1,20 @@
+/* pages/Panel.css */
+
+
+
+.panel-container {
+  display: flex;
+}
+
+.panel-content {
+  margin-left: 60px; /* igual al width de sidebar */
+  transition: margin-left 0.3s;
+  width: 100%;
+  padding: 20px;
+  
+}
+
+.sidebar.expanded + .panel-content {
+  margin-left: 230px; /* igual al expanded width */
+  
+}

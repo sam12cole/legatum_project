@@ -43,9 +43,12 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'agenda', 
     'rest_framework',
+    'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.security.SecurityMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -149,9 +152,32 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
     
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # React dev
+    "https://tu-dominio.com", # Producción
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+SESSION_COOKIE_SECURE = False   # en producción con HTTPS
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_HTTPONLY = True
+
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),    # token de acceso
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),      # token de refresco
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
 }
