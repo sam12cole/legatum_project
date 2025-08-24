@@ -39,7 +39,34 @@ class Cita(models.Model):
     abogado = models.ForeignKey(Abogado, on_delete=models.CASCADE)
     fecha = models.DateField()
     hora = models.TimeField()
+    descripcion_caso = models.TextField(blank=True, null=True)
+    SERVICIOS = [
+        ("asesoria_legal_integral", "Asesoría Legal Integral"),
+        ("contratacion_publica", "Contratación Pública y Asesoría a Empresas"),
+        ("defensa_penal", "Defensa Penal Estratégica"),
+        ("litigio_civil_mercantil", "Litigio Civil y Mercantil"),
+        ("derecho_laboral", "Derecho Laboral y Seguridad Social"),
+        ("derecho_familia", "Derecho de Familia y Niñez"),
+        ("constitucion_empresas", "Constitución y Regularización de Empresas"),
+        ("recuperacion_cartera", "Recuperación de Cartera Vencida"),
+        ("defensa_administrativa", "Defensa Administrativa y Sancionatoria"),
+        ("derecho_militar", "Derecho Militar"),
+        ("derecho_notarial", "Derecho Notarial"),
+        ("derecho_internacional", "Derecho Internacional Privado"),
+    ]
+
+    servicio = models.CharField(max_length=50, choices=SERVICIOS, default="asesoria_legal_integral")
+
+    
     enlace_zoom = models.URLField(blank=True, null=True)
+    modalidad = models.CharField(
+    max_length=20,
+    choices=[
+        ("virtual", "Atención Virtual"),
+        ("presencial", "Atención Presencial"),
+    ],
+    default="virtual"
+    )
     estado = models.CharField(
         max_length=20,
         choices=[
@@ -51,8 +78,14 @@ class Cita(models.Model):
     )
 
     def __str__(self):
-        return f"Cita con {self.abogado} el {self.fecha} a las {self.hora}"
+        return f"{self.cliente_nombre} - {self.get_servicio_display()} ({self.fecha} {self.hora}) - {self.estado}"
 
+    def direccion(self):
+        """Devuelve la dirección si es presencial"""
+        if self.modalidad == "presencial":
+            return "Guayaquil - Av. Carchi y Quisquis / Edificio Quil 1 / Piso 8, Oficina 801"
+        return None
+    
 class Publicacion(models.Model):
     abogado = models.ForeignKey(Abogado, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=200)

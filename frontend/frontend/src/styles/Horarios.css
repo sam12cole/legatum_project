@@ -1,98 +1,213 @@
-.calendario-container {
+.calendario-page {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0);
+  
+}
+.calendario-page_1 {
+    display: flex;
+  gap: 16px;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+/* Mini calendario (izquierda) */
+.mini-calendar-wrapper {
+   /* ancho fijo de la columna izquierda */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+   flex: 0.35;
+   margin-top: 60px;
+}
+
+.mini-calendar-container {
+  border-radius: 8px;
+  padding: 8px;
+  height: auto;         /* se ajusta al contenido */
+  overflow-y: visible;  /* quita scroll vertical */
+  display: inline-block; /* ayuda a que se compacte */
+}
+
+.mini-calendar-container .fc {
+  border: 2px solid #838390a0;  /* color del borde */
+  border-radius: 12px;         /* borde redondeado */
+  overflow: hidden;            /* para que el borde redondeado se aplique correctamente */
+}
+
+
+
+
+/* Header del mini calendario */
+.mini-calendar-header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background-color: rgba(84, 82, 82, 0.608);
+  align-items: center;
+  margin-bottom: 4px;
+  
 }
 
-/* Mini calendario */
-.mini-calendar {
-  width: 220px;
-  border: 1px solid #4a4747;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-.mini-calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-  margin-top: 10px;
-}
-
-.day-name {
+.fecha-actual {
   font-weight: bold;
-  text-align: center;
-  color: #2a2dcb;
+  font-size: 18px;
+  color: #15151a;
+  padding-left: 12px;
 }
 
-.day-cell {
-  text-align: center;
-  padding: 5px;
+.botones-navegacion button {
+  margin-left: 4px;
+  
+  padding: 6px 12px;
   cursor: pointer;
-  border-radius: 4px;
-  color: #1a1919;
+  background-color: #8c9cf4;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  transition: all 0.2s ease-in-out; /* animación suave */
+}
+.botones-navegacion button:hover {
+  background-color: #2a2dcb; /* azul paleta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* sombra */
+  transform: scale(1.07); /* agranda un poco */
 }
 
-.titulo-fecha {
-    color: #2a2dcb;
-}
-.day-cell:hover {
-  background: #636161;
-}
 
-.day-cell.selected {
-  background: #2a2dcb;
-  color: rgb(89, 86, 86);
-}
-
-/* Semana */
-.week-table {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-  max-height: 600px;
+/* Calendario semanal (derecha) */
+.main-calendar-container {
+  flex: 1;    
+  padding: 8px;
+  height: 93%;
   overflow-y: auto;
-  display: block;
+  overflow-y: hidden;
+}
+.main-calendar-container_1 {
+  flex: 1;    
+  padding: 8px;
+  height: 93%;
+  overflow-y: auto;
+  overflow-y: hidden;
 }
 
-.row {
-  display: table-row;
+.fc-view-harness {
+  max-height: 400px !important;
+  overflow-y: auto !important;
 }
 
-.cell {
-  display: table-cell;
-  border: 1px solid #ddd;
-  min-width: 120px;
-  min-height: 40px;
-  vertical-align: top;
-  padding: 2px;
+.fc .fc-scrollgrid-section-sticky > * {
+    background: #2a2dcbcb;
+    position: sticky;
+    z-index: 3;
 }
 
-.hour-col {
-  background: #f5f5f5;
-  text-align: right;
-  font-size: 0.8rem;
-  font-weight: bold;
-  width: 60px;
+.fc-toolbar-title {
+  color: #343675;
+  
+}
+.fc .fc-toolbar-title {
+    font-size: 1.3em;
+   margin-bottom: -5px;
 }
 
-.day-header {
-  background: #2a2dcb;
-  color: white;
-  font-weight: bold;
-  text-align: center;
+.fc .fc-col-header-cell-cushion {
+    color: white;
+    font-size: 12px;
 }
 
-.slot {
-  position: relative;
+.fc-scrollgrid-section-header {
+  background-color: #2a2dcbcb; /* tu color deseado */
+  color: white;              /* color de texto */
 }
 
-.cita-item {
-  background: #ff5722;
-  color: white;
-  padding: 4px;
-  margin: 2px;
-  border-radius: 6px;
-  font-size: 0.8rem;
+.fc-timegrid-axis {
+  background-color: #2a2dcbcb; /* fondo de la columna de horas */
+  color: white;              /* color del texto */
+  border-right: 1px solid #2a2dcb;
+}
+
+a {
+  color: black;
+}
+
+
+
+.fc-scroller::-webkit-scrollbar-track {
+  background: transparent;  /* fondo del track */
+}
+
+.fc-scroller::-webkit-scrollbar-thumb {
+  background-color: #8c9cf4; /* color de la barra */
+  border-radius: 10px;       /* bordes redondeados */
+  border: 2px solid transparent; /* efecto de borde para hacerla más delgada */
+}
+
+/* Scrollbar para Firefox */
+.fc-scroller {
+  scrollbar-width: thin;           /* grosor del scrollbar */
+  scrollbar-color: #2a2dcb transparent; /* color de la barra y del track */
+}
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+    min-height: 0em;
+    position: relative;
+}
+
+.botones-navegacion button {
+    margin-left: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    background-color: #8c9cf4;
+    border-radius: 12px;
+    
+}
+
+.fc .fc-button-primary {
+  background-color: #8c9cf4;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  height: 28px;
+  font-size: 0.75em;
+  transition: all 0.2s ease-in-out; /* animación */
+  margin-bottom: -15px;
+}
+
+.fc .fc-button-primary:hover {
+  background-color: #2a2dcb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(1.07);
+}
+
+.fc .fc-button-primary:disabled {
+  background-color: #8c9cf4;
+  border: none;
+  opacity: 0.6; /* deshabilitado se ve más apagado */
+}
+
+/* Ajusta la altura de las filas (slots de tiempo) */
+.fc-timegrid-slot {
+  height: 12px !important;   /* reduce la altura (por defecto son ~40px) */
+}
+
+/* Redondear bordes del contenedor del calendario */
+.fc-scrollgrid {
+  border-radius: 12px !important;  /* bordes redondeados */
+  overflow: hidden;                /* para que el borde redondeado se aplique */
+  border: 2px solid #2a2dcb;       /* borde azul moderno */
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 1em;
+}
+
+.fc-daygrid-day-number {
+  color: #000000 !important;
+}
+
+
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
+    background-color: #2a2dcb;
+    border-color: var(--fc-button-active-border-color);
+    color: var(--fc-button-text-color);
 }

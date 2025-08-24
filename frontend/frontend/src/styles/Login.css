@@ -89,7 +89,7 @@ body {
 }
 
 .welcome-title {
-  font-size: 1.8rem; /* Tamaño moderado */
+  font-size: 1.5rem; /* Tamaño moderado */
   font-weight: 600; /* Semi-negrita */
   color: #ffffff; /* Azul oscuro elegante */
   margin: 0 !important;
@@ -105,10 +105,11 @@ body {
 }
 
 .welcome-description {
-  font-size: 0.95rem;
+  font-size: 0.80rem;
   color: #ffffff; /* Gris suave */
   line-height: 1.5;
   margin: 0;
+  margin-bottom: -10px;
 }
 
 
@@ -177,7 +178,7 @@ body {
 
 /* Estilos para Button */
 .auth-btn {
-  padding: 20px 20px;
+  padding: 14px 20px;
   background: linear-gradient(135deg, #203be8, #a4d3f4);
   color: rgb(255, 255, 255);
   border: none;
@@ -236,4 +237,28 @@ body {
 
 .titulo-input {
   color: #151516;
+  font-size: 0.9em;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%;       /* que no ocupe toda la pantalla */
+    height: auto;     /* se ajusta a su contenido */
+    flex-direction: column; /* para que todo se apile */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left-side {
+    display: none; /* ocultar lado izquierdo */
+  }
+
+  .right-side {
+    width: 100%;   /* ocupa todo el ancho */
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

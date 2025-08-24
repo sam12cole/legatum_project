@@ -4,15 +4,12 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "../styles/Horarios.css";
-import TablaCitas from "../components/TablaCitas";
 
-interface Event {
-  id?: number | string;
-  title: string;
-  start: Date | string;
-  end: Date | string;
-  backgroundColor?: string;
-  borderColor?: string;
+interface Cita {
+  id: number;
+  titulo: string;
+  fecha: string;   // formato "YYYY-MM-DD"
+  hora: string;    // formato "HH:MM"
 }
 
 
@@ -33,19 +30,29 @@ export default function Calendario() {
       .catch(err => console.error("Error cargando citas:", err));
   }, [currentDate]);
 
-      const events = citas.map(c => {
+    const events = citas.map((c, index) => {
     const [y, m, d] = c.fecha.split("-").map(Number);
     const [h, min] = c.hora.split(":").map(Number);
     const start = new Date(y, m - 1, d, h, min);
     const end = new Date(y, m - 1, d, h + 1, min); // duración 1h
-    return {
-      id: c.id,
-      title: c.titulo,
-      start,
-      end,
-      backgroundColor: "#2a2dcb",
-      borderColor: "#1c1fa5",
-    };
+    const palette = [
+      "#2a2dcbb5",     // azul base
+      "#a5b7eda3",   // azul suave translúcido
+      "#e67aa5b0",   // rosado-lila
+      "#7ae6c4a9",   // verde menta
+      "#f0a57ac0",   // naranja suave
+    ];
+    const color = palette[index % palette.length];
+
+      return {
+        id: c.id,
+        title: c.titulo,
+        start,
+        end,
+        backgroundColor: color,
+        borderColor: "#83838f98",
+        textColor: "#353434e6", 
+      };
   });
 
     const changeMonth = (offset: number) => {
@@ -56,12 +63,12 @@ export default function Calendario() {
 
 
   return (
-    <>   
-    <div className="calendario-page">
+
+    <div className="calendario-page_1">
 
 
     {/* Calendario semanal derecho */}
-    <div className="main-calendar-container">
+    <div className="main-calendar-container_1">
         <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="timeGridWeek"
@@ -86,45 +93,11 @@ export default function Calendario() {
         }}
         />
     </div>
-        {/* Mini calendario izquierdo */}
 
-    <div className="mini-calendar-wrapper">
-    {/* Header encima del mini calendario */}
-            <div className="mini-calendar-header">
-            <span className="fecha-actual">
-            {(() => {
-                const fechaStr = currentDate.toLocaleDateString("es-EC", {
-                weekday: "short",
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-                });
-                
-                // Capitalizar la primera letra de cada palabra
-                return fechaStr.replace(/\b\w/g, (c) => c.toUpperCase());
-            })()}
-            </span>
+   
 
-                <div className="botones-navegacion">
-                <button onClick={() => changeMonth(-1)}>‹</button>
-                <button onClick={() => changeMonth(1)}>›</button>
-                </div>
-            </div>
-
-        {/* Mini calendario */}
-        <div className="mini-calendar-container">
-            <FullCalendar
-            plugins={[dayGridPlugin]}
-            initialView="dayGridMonth"
-            headerToolbar={false}
-            height="auto"
-            dateClick={(info) => setCurrentDate(new Date(info.date))}
-            />
-        </div>
     </div>
-             
-    </div>
-       <TablaCitas citas={citas} />
-       </>
+
   );
 }
+

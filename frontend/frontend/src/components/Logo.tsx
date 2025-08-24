@@ -18,8 +18,8 @@ const Logo: React.FC<LogoProps> = ({
 }) => {
   const sizes = {
     small: "120px",
-    medium: "150px",
-    large: "170px"
+    medium: "135px",
+    large: "160px"
   };
 
   return (

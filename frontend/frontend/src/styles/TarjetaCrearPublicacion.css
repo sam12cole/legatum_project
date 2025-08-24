@@ -1,0 +1,66 @@
+.tarjeta-crear {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 250px;
+  height: 180px;
+
+  margin: auto;
+  border-radius: 16px;
+  border: 1px solid #2f26d785;
+  background-color: #fff;
+
+  box-shadow: 0 2px 6px rgba(53, 22, 192, 0.385);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-crear:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to right, rgba(21, 24, 209, 0.945), rgba(101, 104, 255, 0.96));
+
+}
+
+.tarjeta-crear .icono_2 {
+  font-size: 60px;
+  color: #2a2dcb; /* tu color institucional */
+}
+
+.tarjeta-crear .texto {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 22px;
+  color: #2a2dcb;
+  text-align: center;
+}
+
+.tarjeta-crear:hover .icono_2 {
+  
+  color: white; /* tu color institucional */
+}
+
+.tarjeta-crear:hover .texto {
+ 
+  color: white;
+}
+
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .tarjeta-crear {
+    max-width: 100%;
+    height: 150px;
+  }
+
+  .tarjeta-crear .icono {
+    font-size: 32px;
+  }
+
+  .tarjeta-crear .texto {
+    font-size: 14px;
+  }
+}

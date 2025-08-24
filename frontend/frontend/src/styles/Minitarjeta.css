@@ -1,0 +1,189 @@
+/* Tarjeta ocupando 80% y centrada horizontalmente */
+.mini-tarjeta-full {
+  background-color: #a5b7ed82;
+  border-radius: 12px;
+  padding: 16px;
+  width: 80%; /* ocupa 80% del contenedor */
+  margin: 0 auto; /* centra horizontalmente */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Encabezado horizontal con íconos y tipo de caso */
+.mini-tarjeta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap; /* permite que en pantallas pequeñas se acomoden */
+  width: 90%;
+  margin: 0 auto; /* centra el botón horizontalmente */
+
+}
+
+.icono {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  font-size: 15px;
+  background-color: #2a2dcba9;
+  border-radius: 12px;
+  padding: 8px 14px;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.tipo-caso {
+  background-color: #2a2dcba9;
+  color: #f6faff;
+  text-align: center;
+  padding: 8px 14px;
+
+  border-radius: 20px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.boton-descripcion {
+  background-color: #2a2dcba9;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 40%;
+  justify-content: center;
+  gap: 4px;
+  font-size: 14px;
+  margin: 0 auto; /* centra el botón horizontalmente */
+}
+
+.boton-descripcion:hover {
+  background-color: #2a2dcba9;
+}
+
+.descripcion {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #2a2dcba9;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.mini-tarjeta-horizontal {
+  display: flex;
+  width: 100%;
+  gap: 20px; /* espacio entre divs */
+  padding: 16px;
+  background-color: rgba(73, 65, 65, 0);
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+}
+
+/* Div izquierdo */
+.left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Avatar y nombre */
+.avatar-nombre {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Círculo con letra */
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #2a2dcba9;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Nombre y fecha */
+.nombre-fecha {
+  display: flex;
+  flex-direction: column;
+}
+
+.nombre {
+  font-weight: bold;
+  font-size: 16px;
+  color: #2a2dcba9;
+}
+
+.fecha {
+  font-size: 12px;
+  color: #555;
+}
+
+/* Div derecho */
+.right {
+  flex: 1;
+  background-color: #f0f0f000;
+  border-radius: 8px;
+  padding: 16px;
+  margin-right: 40px;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+
+/* Modalidad */
+.modalidad {
+  margin-left: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  color: #151516;
+  background-color: #e0e0e0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.modalidad:hover {
+  background-color: #2a2dcba9;
+  color: white;
+}
+
+.direccion {
+  color: #2e2e2f;
+  font-size: 11px;
+  padding: 10px 0 0 10px;
+  background-color: #e0e0e0;
+
+}
+
+/* Semáforo horizontal */
+.semaforo {
+  margin-top: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* círculo */
+  border: 2px solid #77757599;
+}
+/* Estados */
+.semaforo.pendiente { background-color: yellow; }
+.semaforo.confirmada { background-color: green; }
+.semaforo.cancelada { background-color: red; }

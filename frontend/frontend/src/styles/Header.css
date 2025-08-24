@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   color: var(--text-color, #333);
-  padding: 15px 20px;
+  padding: 15px 0px 0 0px;
   box-sizing: border-box;
   flex-wrap: wrap;
   border-radius: 0 0 20px 20px;
@@ -32,7 +32,7 @@
   color: #1e1d1de7;
 }
 .header-left p { 
-  margin: 5px 0 0 0; 
+  margin: -5px 0 0 0; 
   font-size: 0.85rem; 
   color: #696970; 
 }

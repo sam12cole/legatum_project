@@ -42,7 +42,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       <div className="overlay"></div>
       <div className="login-container">
         <div className="left-side">
-          <div style={{ paddingLeft: "115px" }}>
+          <div style={{ paddingLeft: "60px" }}>
             <Logo variant="full" size="large" className="main-logo" />
           </div>
           <div className="welcome-content">

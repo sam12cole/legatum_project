@@ -1,0 +1,69 @@
+.crear-publicacion {
+    width: 80%;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.crear-publicacion h1 {
+  text-align: center;
+  color: #2a2dcb;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.formulario-publicacion {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario-publicacion label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #333;
+}
+
+.formulario-publicacion input[type="text"],
+.formulario-publicacion textarea,
+.formulario-publicacion input[type="file"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.formulario-publicacion textarea {
+  resize: vertical;
+  min-height: 300px;
+}
+
+.formulario-publicacion button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2a2dcb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.formulario-publicacion button:hover {
+  background-color: rgba(200, 201, 246, 0.587);
+  color: #2a2dcb;
+  border: 1px solid #304dde66;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .crear-publicacion {
+    margin: 20px 15px;
+    padding: 15px;
+  }
+}

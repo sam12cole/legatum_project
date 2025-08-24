@@ -1,0 +1,44 @@
+/* Contenedor principal del panel */
+.panel-container {
+  display: flex;
+  height: 100vh;              /* Ocupa toda la pantalla */
+  width: 100%;                /* Ancho completo */
+  overflow: hidden;           /* Evita scroll lateral innecesario */
+  background-color: #f9f9f9;  /* Fondo suave, cámbialo si deseas */
+}
+
+/* Sidebar fijo a la izquierda */
+.panel-container > .sidebar {
+  width: 240px;               /* Ancho fijo del sidebar */
+  flex-shrink: 0;             /* Evita que se achique */
+  background-color: #2a2dcb;  /* Tu color corporativo */
+  color: white;
+  height: 100%;
+  overflow-y: auto;           /* Scroll interno si es muy largo */
+}
+
+/* Área de contenido (Header + Outlet) */
+.panel-content {
+  flex: 1;                    /* Ocupa todo el espacio restante */
+  display: flex;
+  flex-direction: column;     /* Header arriba, contenido debajo */
+  overflow: hidden;
+}
+
+/* Header fijo en la parte superior */
+.panel-content > .header {
+  height: 60px;               /* Ajusta según tu diseño */
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  flex-shrink: 0;             /* No se achica */
+}
+
+/* Contenido de cada página */
+.panel-content > *:not(.header) {
+  flex: 1;                    /* Ocupa el resto del espacio */
+  overflow-y: auto;           /* Scroll solo en el contenido */
+  padding: 16px;
+}

@@ -57,11 +57,12 @@ if (!user) return null; // esperar a que cargue
           <div className="mini-card">
             <div className="mini-card-img">
               {user.photoUrl ? (
-                <img src={user.photoUrl} alt="Foto del abogado" />
+                <img src={`http://127.0.0.1:8000${user.photoUrl}`} alt="Foto del abogado" />
               ) : (
                 <p>Sin foto</p>
               )}
             </div>
+
 
             <div className="mini-card-text">
               <strong>

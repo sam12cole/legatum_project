@@ -9,8 +9,8 @@
 .panel-content {
   margin-left: 60px; /* igual al width de sidebar */
   transition: margin-left 0.3s;
-  width: 100%;
-  padding: 20px;
+  width: 93%;
+  padding: 0 0px 0 20px;
   
 }
 
@@ -18,3 +18,17 @@
   margin-left: 230px; /* igual al expanded width */
   
 }
+
+.calendar-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2a2dcb; /* tu color corporativo */
+  margin-bottom: 5px;
+  position: relative;
+  padding-bottom: 0px;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+ 
+}
+
+

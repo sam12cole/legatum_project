@@ -1,0 +1,20 @@
+.publicaciones-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Móvil: 1 columna */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* 📱 Tablet */
+@media (min-width: 640px) {
+  .publicaciones-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  }
+}
+
+/* 💻 Desktop */
+@media (min-width: 1024px) {
+  .publicaciones-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  }
+}

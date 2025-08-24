@@ -1,0 +1,43 @@
+.tabla-citas {
+  width: 90%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  margin: 20px auto; /* esto centra la tabla horizontalmente */
+}
+
+
+
+.tabla-citas th, .tabla-citas td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.tabla-citas th {
+  background-color: #2a2dcbdc;
+  color: white !important;
+}
+
+.tabla-citas tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabla-citas tr:hover {
+  background-color: #e6e6fa;
+}
+
+.tabla-citas input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.tabla-citas th, .tabla-citas td {
+    border: 1px solid #dddddddb;
+    padding: 8px;
+    text-align: center;
+    color: rgba(37, 36, 36, 0.755);
+}
+

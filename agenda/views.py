@@ -41,7 +41,14 @@ def listar_citas(request):
         "fecha": c.fecha,
         "hora": c.hora,
         "estado": c.estado,
-        "enlace_zoom": c.enlace_zoom
+        "enlace_zoom": c.enlace_zoom,
+        "servicio": c.get_servicio_display(),  # mostrar nombre legible del servicio
+        "descripcion_caso": c.descripcion_caso,
+        "telefono": c.cliente_telefono,
+        "email": c.cliente_email,
+        "modalidad_valor": c.modalidad,
+        "modalidad_display": c.get_modalidad_display(),
+        "direccion": c.direccion(),
     } for c in citas])
 
 @api_view(['GET'])
@@ -55,3 +62,48 @@ def listar_publicaciones(request):
         "contenido": p.contenido,
         "fecha": p.fecha
     } for p in publicaciones])
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def crear_publicacion(request):
+    abogado = request.user.abogado
+    titulo = request.data.get("titulo")
+    contenido = request.data.get("contenido")
+    imagen = request.FILES.get("imagen")
+
+    publicacion = Publicacion.objects.create(
+        abogado=abogado,
+        titulo=titulo,
+        contenido=contenido,
+        imagen=imagen
+    )
+
+    return Response({
+        "id": publicacion.id,
+        "titulo": publicacion.titulo,
+        "contenido": publicacion.contenido,
+        "fecha": publicacion.fecha_creacion
+    })
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def editar_publicacion(request, pk):
+    try:
+        publicacion = Publicacion.objects.get(pk=pk, abogado=request.user.abogado)
+    except Publicacion.DoesNotExist:
+        return Response({"error": "No encontrada"}, status=404)
+
+    publicacion.titulo = request.data.get("titulo", publicacion.titulo)
+    publicacion.contenido = request.data.get("contenido", publicacion.contenido)
+    
+    if request.FILES.get("imagen"):
+        publicacion.imagen = request.FILES.get("imagen")
+    
+    publicacion.save()
+    
+    return Response({
+        "id": publicacion.id,
+        "titulo": publicacion.titulo,
+        "contenido": publicacion.contenido,
+        "fecha": publicacion.fecha_creacion
+    })
+
