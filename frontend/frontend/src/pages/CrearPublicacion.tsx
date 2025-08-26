@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/CrearPublicacion.css";
+import { useParams } from "react-router-dom";
 
 interface PublicacionData {
   id?: number;
@@ -12,28 +14,35 @@ interface CrearPublicacionProps {
   publicacionId?: number; // Si existe, estamos editando
 }
 
-const CrearPublicacion: React.FC<CrearPublicacionProps> = ({ publicacionId }) => {
+const CrearPublicacion: React.FC = () => {
   const [titulo, setTitulo] = useState("");
   const [contenido, setContenido] = useState("");
   const [imagen, setImagen] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [mensaje, setMensaje] = useState("");
+  const navigate = useNavigate();
 
   // 🔹 Si editamos, cargamos los datos existentes
+  const { id } = useParams();
+  const publicacionId = id ? parseInt(id) : undefined;
+
 useEffect(() => {
   if (!publicacionId) return;
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("access");
     if (!token) {
       setMensaje("No hay token. Inicia sesión primero.");
       setLoading(false);
       return;
     }
 
-  fetch(`http://127.0.0.1:8000/api/agenda/publicaciones/${publicacionId}/`, {
-    headers: { "Authorization": `Bearer ${token}` }
-  })
+      fetch(`http://127.0.0.1:8000/api/agenda/publicaciones/${publicacionId}/`, {
+        headers: { 
+          "Authorization": `Bearer ${token}`
+        }
+      })
+
     .then(res => {
       if (!res.ok) throw new Error("Error al cargar la publicación");
       return res.json();
@@ -66,7 +75,7 @@ useEffect(() => {
       formData.append("contenido", contenido);
       if (imagen) formData.append("imagen", imagen);
 
-      const token = localStorage.getItem("token");
+     const token = localStorage.getItem("access");
 
       const url = publicacionId
         ? `http://127.0.0.1:8000/api/agenda/publicaciones/editar/${publicacionId}/`
@@ -78,7 +87,7 @@ useEffect(() => {
 
       const res = await fetch(url, {
         method,
-        headers: { "Authorization": `Token ${token}` },
+        headers: { "Authorization": `Bearer ${token}` },
         body: formData,
       });
 
@@ -91,7 +100,12 @@ useEffect(() => {
         setContenido("");
         setImagen(null);
         setPreview(null);
+
       }
+      setTimeout(() => {
+        navigate("/panel/publicaciones"); // Cambia esta ruta a la de tu lista de publicaciones
+      }, 1500);
+          
     } catch (error: any) {
       console.error(error);
       setMensaje(error.message || "Error de conexión con el backend ❌");
@@ -147,8 +161,10 @@ useEffect(() => {
 
         <button type="submit" disabled={loading}>
           {loading ? "Guardando..." : "Guardar Publicación"}
+          
         </button>
       </form>
+        
     </div>
   );
 };

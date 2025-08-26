@@ -1,9 +1,13 @@
 .publicaciones-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* Móvil: 1 columna */
-  gap: 20px;
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;   /* hace que bajen a otra fila */
+  gap: 16px;         /* espacio entre tarjetas */
+  justify-content: flex-start; /* o "center" si las quieres centradas */
+  align-items: flex-start;
+  padding: 16px;
+  box-sizing: border-box;
 }
+
 
 /* 📱 Tablet */
 @media (min-width: 640px) {

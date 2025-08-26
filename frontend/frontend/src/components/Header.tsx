@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { FaBell } from "react-icons/fa";
 import "../styles/Header.css";
+import { fetchConAuth } from "../utils/fetchConAuth";
 
 interface UserProfile {
   firstName: string;
@@ -16,16 +17,9 @@ const [user, setUser] = useState<UserProfile | null>(null);
 
 useEffect(() => {
   const fetchProfile = async () => {
-    const token = localStorage.getItem("access");
-    if (!token) return;
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/agenda/user_profile/", {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
-        },
-      });
+      const res = await fetchConAuth("http://127.0.0.1:8000/api/agenda/user_profile/");
 
       if (!res.ok) throw new Error(`Error: ${res.status}`);
       const data: UserProfile = await res.json();

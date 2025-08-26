@@ -10,8 +10,8 @@
 
   margin: auto;
   border-radius: 16px;
-  border: 1px solid #2f26d785;
-  background-color: #fff;
+  border: 1px solid #2f26d70e;
+  background-color: #9cb6fd77;
 
   box-shadow: 0 2px 6px rgba(53, 22, 192, 0.385);
   cursor: pointer;
@@ -21,7 +21,7 @@
 .tarjeta-crear:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(to right, rgba(21, 24, 209, 0.945), rgba(101, 104, 255, 0.96));
+  background: linear-gradient(to right, rgba(21, 24, 209, 0.608), rgba(175, 176, 243, 0.649));
 
 }
 

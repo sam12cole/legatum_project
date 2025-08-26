@@ -4,6 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "../styles/Horarios.css";
+import { fetchConAuth } from "../utils/fetchConAuth";
 
 interface Cita {
   id: number;
@@ -18,13 +19,7 @@ export default function Calendario() {
   const [citas, setCitas] = useState<Cita[]>([]); 
 
     useEffect(() => {
-    const token = localStorage.getItem("access");
-    fetch("http://127.0.0.1:8000/api/agenda/listar_citas/", {
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
-      },
-    })
+    fetchConAuth("http://127.0.0.1:8000/api/agenda/listar_citas/")
       .then(res => res.json())
       .then((data: Cita[]) => setCitas(data))
       .catch(err => console.error("Error cargando citas:", err));

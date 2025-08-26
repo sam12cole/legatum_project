@@ -1,0 +1,43 @@
+.header-1 {
+  width: 90vw; /* ancho completo de la ventana */
+  height: 300px;
+  background-image: url('../assets/fondo_contac.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden; /* evita que algo sobresalga */
+  box-sizing: border-box;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .bloque-1 {
+    width: 50%; /* más grande en móviles para que se vea bien */
+    padding: 15px;
+    bottom: -40px;
+  }
+}
+
+.informacion-contenedor {
+  display: flex;
+  width: 100%;
+  min-height: 200px;
+  box-sizing: border-box;
+}
+
+.informacion-izquierda {
+  width: 60%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.informacion-derecha {
+  width: 40%;
+  background-color: #2a2dcb; /* azul oscuro */
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}

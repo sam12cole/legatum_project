@@ -3,16 +3,15 @@ import React, { useState, useEffect } from "react";
 import CalendarioSemanal from "../components/CalendarioSemanal";
 import MiniTarjeta from "../components/Minitarjeta";
 import "../styles/Panel.css";
+import { fetchConAuth } from "../utils/fetchConAuth";
 
 const Panel: React.FC = () => {
   const [citas, setCitas] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem("access");
-    fetch("http://127.0.0.1:8000/api/agenda/listar_citas/", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    
+    fetchConAuth("http://127.0.0.1:8000/api/agenda/listar_citas/")
       .then(res => res.json())
       .then(data => {
         setCitas(data);

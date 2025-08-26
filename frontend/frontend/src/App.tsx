@@ -16,7 +16,11 @@ export default function App() {
         <Route path="/panel" element={<PanelLayout />}>
           <Route index element={<Panel />} />
           <Route path="horarios" element={<Horarios />} />
-          <Route path="informacion" element={<Informacion />} />
+          <Route
+            path="informacion"
+            element={<Informacion />}
+            // pasamos prop al layout
+          />
           <Route path="publicaciones" element={<Publicaciones />} />
           <Route path="publicaciones/crear" element={<CrearPublicacion />} />
           <Route path="publicaciones/editar/:id" element={<CrearPublicacion />} />

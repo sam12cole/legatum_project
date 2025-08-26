@@ -1,0 +1,49 @@
+/* Fondo semi-negro */
+.overlay-publicacion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal centrado */
+.modal {
+  background-color: #2a2dcb; /* color de tu marca */
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  min-width: 300px;
+  animation: scaleUp 0.3s ease-out;
+}
+
+/* Checkmark grande */
+.checkmark {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+/* Mensaje */
+.message {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Animación de aparición */
+@keyframes scaleUp {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
