@@ -3,14 +3,43 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
+class Idioma(models.Model):
+    codigo = models.CharField(max_length=5, unique=True)
+    nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
+
 class Abogado(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     especialidad = models.CharField(max_length=100, blank=True)
     telefono = models.CharField(max_length=20, blank=True)
     foto = models.ImageField(upload_to='abogados/', blank=True, null=True)
 
+    # Nuevos campos
+    latitud = models.FloatField(blank=True, null=True)
+    longitud = models.FloatField(blank=True, null=True)
+    numero_registro = models.CharField("N° de Registro Profesional", max_length=50, blank=True)
+    anios_experiencia = models.PositiveIntegerField("Años de experiencia", default=0, blank=True)
+
+    # Educación
+    licenciatura_universidad = models.CharField("Licenciatura - Universidad", max_length=150, blank=True)
+    licenciatura_titulo = models.CharField("Título de Licenciatura", max_length=150, blank=True)
+
+    maestria_universidad = models.CharField("Maestría - Universidad", max_length=150, blank=True)
+    maestria_titulo = models.CharField("Título de Maestría", max_length=150, blank=True)
+
+    # Horario de atención
+    horario_atencion = models.CharField(max_length=200, blank=True, help_text="Ej: Lunes a Viernes, 09h00-17h00")
+
+    # Relación con Idiomas
+    idiomas = models.ManyToManyField(Idioma, blank=True)
+
     def __str__(self):
         return f"{self.usuario.get_full_name()} - {self.especialidad}"
+
 
 class HorarioDisponible(models.Model):
     abogado = models.ForeignKey(Abogado, on_delete=models.CASCADE, related_name='horarios')

@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  margin: 0 0px 0 0 ;
+  padding: 0 0px 0 0;
   min-width: 320px;
   min-height: 100vh;
   font-family: sans-serif;
@@ -126,7 +127,6 @@ body {
   color: rgba(21, 24, 209, 0.945);
   margin-bottom: 2rem;
   font-size: 1.7rem;
-  font-weight: ;
 }
 
 .auth-form {

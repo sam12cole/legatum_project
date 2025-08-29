@@ -6,7 +6,7 @@ export async function fetchConAuth(
   const token = localStorage.getItem("access");
 
   if (!token) {
-    window.location.href = "";
+    window.location.href = "http://localhost:5173/";
     throw new Error("No hay token");
   }
 
@@ -27,7 +27,7 @@ export async function fetchConAuth(
 
     if (res.status === 401 || res.status === 403) {
       localStorage.removeItem("access");
-      window.location.href = "";
+      window.location.href = "http://localhost:5173/";
       throw new Error("Token expirado o no autorizado");
     }
 

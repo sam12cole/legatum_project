@@ -1,0 +1,36 @@
+.mapa-direccion {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px;
+  background: #a5b7eda3;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: all 0.3s ease; /* suaviza el hover */
+}
+
+.mapa-direccion:hover {
+  transform: translateY(-4px); /* levanta un poquito */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2); /* sombra más fuerte */
+  background: #90a8e6d2; /* leve cambio de color */
+}
+
+.mapa-container {
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.direccion-info {
+  flex: 1;
+  text-align: left;
+  color: black;
+  font-size: 13px;
+}
+
+.direccion-info h3 {
+  margin-bottom: 10px;
+  color: #2a2dcb;
+}

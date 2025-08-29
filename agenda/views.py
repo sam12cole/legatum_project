@@ -3,6 +3,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import Cita, Publicacion
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework import status
+
 
 #@api_view(['GET'])
 #@permission_classes([IsAuthenticated])
@@ -16,22 +18,70 @@ from rest_framework.parsers import MultiPartParser, FormParser
 #    publicaciones = Publicacion.objects.values("id", "titulo", "contenido", "fecha")
 #    return Response(list(publicaciones))
 
-@api_view(['GET'])
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework import status
+
+
+@api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
 def user_profile(request):
     usuario = request.user
     try:
         abogado = usuario.abogado
     except:
-        abogado = None
-    return Response({
-        "firstName": usuario.first_name,
-        "lastName": usuario.last_name,
-        "username": usuario.username,
-        "email": usuario.email,
-        "photoUrl": abogado.foto.url if abogado and abogado.foto else None,
-        "especialidad": abogado.especialidad if abogado else None 
-    })
+        return Response({"error": "El usuario no tiene perfil de abogado."}, status=status.HTTP_404_NOT_FOUND)
+
+    # --- GET (mostrar perfil) ---
+    if request.method == 'GET':
+        return Response({
+            "firstName": usuario.first_name,
+            "lastName": usuario.last_name,
+            "username": usuario.username,
+            "email": usuario.email,
+            "photoUrl": abogado.foto.url if abogado.foto else None,
+            "especialidad": abogado.especialidad,
+            "telefono": abogado.telefono,
+            "lat": abogado.latitud,
+            "lon": abogado.longitud,
+            "numero_registro": abogado.numero_registro,
+            "anios_experiencia": abogado.anios_experiencia,
+            "idiomas": [idioma.nombre for idioma in abogado.idiomas.all()],
+            "licenciatura": {
+                "universidad": abogado.licenciatura_universidad,
+                "titulo": abogado.licenciatura_titulo,
+            },
+            "maestria": {
+                "universidad": abogado.maestria_universidad,
+                "titulo": abogado.maestria_titulo,
+            },
+            "horario_atencion": abogado.horario_atencion,
+        })
+
+    # --- PUT (actualizar perfil) ---
+    if request.method == 'PUT':
+        data = request.data
+
+        # Solo campos editables
+        abogado.especialidad = data.get("especialidad", abogado.especialidad)
+        abogado.telefono = data.get("telefono", abogado.telefono)
+        abogado.latitud = data.get("latitud", abogado.latitud)
+        abogado.longitud = data.get("longitud", abogado.longitud)
+        abogado.anios_experiencia = data.get("anios_experiencia", abogado.anios_experiencia)
+        abogado.horario_atencion = data.get("horario_atencion", abogado.horario_atencion)
+
+        # Actualizar idiomas (espera lista de IDs)
+        if "idiomas" in data:
+            abogado.idiomas.set(data["idiomas"])  # Ejemplo: [1, 2, 3]
+
+        # Foto (si viene en la petición)
+        if "foto" in request.FILES:
+            abogado.foto = request.FILES["foto"]
+
+        abogado.save()
+
+        return Response({"message": "Perfil actualizado correctamente"}, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

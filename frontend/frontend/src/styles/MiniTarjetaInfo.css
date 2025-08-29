@@ -1,0 +1,68 @@
+.mini-tarjeta-2 {
+  width: 70%;
+  background-color: #e5e9f7f3;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); /* sombra más fuerte */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.mini-tarjeta-2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35); /* sombra aún más intensa al pasar el mouse */
+}
+
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2a2dcb;
+}
+
+.nombre {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #2a2dcb;
+}
+
+.usuario, .especialidad, .cargo {
+  font-size: 14px;
+  margin: 0;
+}
+
+.usuario { color: #555; }
+.especialidad { color: #333; font-style: italic; }
+.cargo { color: #777; font-weight: 500; }
+
+.info-adicional {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column; /* mantiene las filas separadas */
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  color: #333;
+}
+
+.info-adicional p {
+  display: flex;           /* convierte cada fila en flex horizontal */
+  align-items: center;     /* centra icono y texto verticalmente */
+  gap: 6px;                /* espacio entre icono y texto */
+  margin: 0;
+}
+
+.info-adicional .icono {
+  color: #2a2dcb;
+  background-color: transparent;
+  flex-shrink: 0; /* evita que el icono se reduzca */
+}
