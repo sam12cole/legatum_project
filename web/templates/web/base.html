@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{% static 'web/css/responsive.css' %}">
     <link rel="stylesheet" href="{% static 'web/css/variables.css' %}">
     <link rel="stylesheet" href="{% static 'web/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'react/public/styles/chatWidget.css' %}">
 
 
     <!-- CSS específico por página -->
@@ -94,6 +95,9 @@
     <!-- JS específico por página -->
     {% block extra_js %}{% endblock %}
 
+    {% include 'web/includes/chat_cita_react.html' %}
+
+
     <script src="{% static 'web/js/scrollreveal.min.js' %}"></script>
 
     <script src="{% static 'web/js/animaciones.js' %}"></script>
@@ -102,7 +106,7 @@
     <script src="{% static 'web/js/offcanvas.js' %}"></script>
 
 
-
+    <script src="{% static 'react/public/chatCita.js' %}"></script>
 
 </body>
   

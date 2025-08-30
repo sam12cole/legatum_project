@@ -1,0 +1,25 @@
+{% load static %}
+
+<!-- Contenedor del widget (React lo monta en body) -->
+<div id="chat-cita-root"></div>
+
+<!-- React y ReactDOM desde CDN -->
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+<!-- CSS del widget -->
+<link rel="stylesheet" href="{% static 'react/public/styles/chatWidget.css' %}">
+
+<!-- Tu bundle React -->
+<script src="{% static 'react/public/chatCita.js' %}"></script>
+
+<!-- Montaje del componente -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById('chat-cita-root');
+  if(container && typeof ChatCitaPublico !== 'undefined') {
+    const root = ReactDOM.createRoot(container);
+    root.render(React.createElement(ChatCitaPublico));
+  }
+});
+</script>

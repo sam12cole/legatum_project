@@ -1,0 +1,19 @@
+<!-- web/templates/web/includes/form_cita_react.html -->
+{% load static %}
+
+<div id="react-cita-container-{{ unique_id }}"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="{% static 'react/public/formCita.js' %}"></script>
+
+<script>
+// Renderizar el componente con ID único
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('react-cita-container-{{ unique_id }}');
+        if(container && typeof ChatCitaPublico !== 'undefined') {
+            const root = ReactDOM.createRoot(container);
+            root.render(React.createElement(ChatCitaPublico));
+        }
+});
+</script>

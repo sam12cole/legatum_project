@@ -2,7 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+from django.utils import timezone
+from datetime import timedelta, datetime, time
+import pytz
 
 class Idioma(models.Model):
     codigo = models.CharField(max_length=5, unique=True)
@@ -114,6 +116,50 @@ class Cita(models.Model):
         if self.modalidad == "presencial":
             return "Guayaquil - Av. Carchi y Quisquis / Edificio Quil 1 / Piso 8, Oficina 801"
         return None
+    
+    class Meta:
+        unique_together = ['abogado', 'fecha', 'hora']
+    
+    def clean(self):
+        """Validación adicional para el modelo"""
+        from django.core.exceptions import ValidationError
+        
+        # Verificar que la cita no sea en el pasado
+        ahora = timezone.now()
+        fecha_hora_cita = datetime.combine(self.fecha, self.hora)
+        if timezone.make_aware(fecha_hora_cita) < ahora:
+            raise ValidationError("No se pueden agendar citas en el pasado")
+        
+        # Verificar que no haya citas solapadas
+        citas_existentes = Cita.objects.filter(
+            abogado=self.abogado,
+            fecha=self.fecha,
+            estado__in=['Pendiente', 'Confirmada']
+        ).exclude(pk=self.pk if self.pk else None)
+        
+        for cita_existente in citas_existentes:
+            hora_existente = cita_existente.hora
+            hora_nueva = self.hora
+            
+            # Verificar solapamiento considerando 20 minutos de duración
+            if self._horas_se_solapan(hora_existente, hora_nueva):
+                raise ValidationError("Ya existe una cita en este horario")
+    
+    def _horas_se_solapan(self, hora1, hora2):
+        """Verifica si dos horas se solapan considerando 20 minutos de duración"""
+        delta = timedelta(minutes=20)
+        
+        inicio1 = datetime.combine(datetime.today(), hora1)
+        fin1 = inicio1 + delta
+        
+        inicio2 = datetime.combine(datetime.today(), hora2)
+        fin2 = inicio2 + delta
+        
+        return (inicio1 <= inicio2 < fin1) or (inicio2 <= inicio1 < fin2)
+    
+    def save(self, *args, **kwargs):
+        self.clean()  # Ejecutar validaciones antes de guardar
+        super().save(*args, **kwargs)
     
 class Publicacion(models.Model):
     abogado = models.ForeignKey(Abogado, on_delete=models.CASCADE)
